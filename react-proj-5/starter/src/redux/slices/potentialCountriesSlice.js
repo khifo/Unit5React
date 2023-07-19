@@ -13,7 +13,17 @@ export const potentialContriesSlice = createSlice({
     },
     reducers: {
         setPotentialCountries: (state, action) => {
-            state.value = null;
+            state.value = action.payload;
         },
-    },
+        deletePotentialCountries: (state) => {
+                state.value = null;
+        },   
+     },
 }); 
+
+export const { setPotentialCountries, deletePotentialCountries } =
+    potentialCountriesSlice.actions;
+
+export const selectPotentials = (state) => state.potentialCountries.value;
+
+export default potentialCountriesSlice.reducer;
